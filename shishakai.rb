@@ -11,7 +11,7 @@ doc = Nokogiri::HTML(open(base_uri))
 movie_info = doc.css("div.previewMovieInfo").map do |info|
   anchor = info.css("a").first
   title = anchor.text
-  uri = URI.join(base_uri, anchor.attributes["href"].value)
+  uri = URI.join(base_uri, anchor.attributes["href"].value).to_s
 
   table_data = info.css("td")
   limit = table_data[0].text
