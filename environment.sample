@@ -1,5 +1,5 @@
 export DATABASE_URL=postgres://username:password@localhost:5432/shishakai
-export TWITTER_CONSUMER_KEY=xxxxx
-export TWITTER_CONSUMER_SECRET=xxxxx
-export TWITTER_APPLICATION_KEY=xxxxx
-export TWITTER_APPLICATION_SECRET=xxxxx
+export CONSUMER_KEY=xxxxx
+export CONSUMER_SECRET=xxxxx
+export ACCESS_TOKEN=xxxxx
+export ACCESS_TOKEN_SECRET=xxxxx
