@@ -18,11 +18,11 @@ module ShishakaiBot
     end
 
     def add(uri)
-      @conn.exec("INSERT INTO tweeted_pages VALUES ('#{URI.escape(uri)}')")
+      @conn.exec("INSERT INTO tweeted_pages VALUES ('#{uri}')")
     end
 
     def remove(uri)
-      @conn.exec("DELETE FROM tweeted_pages WHERE uri = '#{URI.escape(uri)}'")
+      @conn.exec("DELETE FROM tweeted_pages WHERE uri = '#{uri}'")
     end
 
   end
