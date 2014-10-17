@@ -8,7 +8,7 @@ module ShishakaiBot
 
     BASE_URI = "http://movie.walkerplus.com/shisyakai/"
 
-    def initialize(base_uri: BASE_URI)
+    def initialize(base_uri = BASE_URI)
       @pages = parse(base_uri)
     end
 
