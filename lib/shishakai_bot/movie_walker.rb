@@ -8,22 +8,27 @@ module ShishakaiBot
 
     BASE_URI = "http://movie.walkerplus.com/shisyakai/"
 
-    def initialize
-      @pages = {}
-      doc = Nokogiri::HTML(open(BASE_URI))
-      doc.css("div.previewMovieInfo").each do |info|
+    def initialize(base_uri: BASE_URI)
+      @pages = parse(base_uri)
+    end
+
+    def parse(base_uri)
+      pages = {}
+      doc = Nokogiri::HTML(open(base_uri))
+      doc.css("div.previewMovieInfo").reverse_each do |info|
         anchor = info.css("a").first
         title = anchor.text
-        uri = URI.join(BASE_URI, anchor.attributes["href"].value).to_s
+        uri = URI.join(base_uri, anchor.attributes["href"].value).to_s
 
         table_data = info.css("td")
         limit = table_data[0].text
         date = table_data[1].text
         place = table_data[2].text.sub(/\(.*\)/, '')
 
-        @pages[uri] = MovieWalkerPage.new(title: title, limit: limit, date: date,
-                                          place: place, uri: uri)
+        pages[uri] = MovieWalkerPage.new(title: title, limit: limit, date: date,
+                                         place: place, uri: uri)
       end
+      pages
     end
 
     def pages
