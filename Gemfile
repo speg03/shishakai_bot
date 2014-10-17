@@ -6,5 +6,6 @@ gem 'twitter'
 gem 'pg'
 
 group :test do
+  gem 'rake'
   gem 'test-unit'
 end
