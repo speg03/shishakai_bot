@@ -6,7 +6,7 @@ require 'shishakai_bot/movie_walker'
 module ShishakaiBot
   class TestMovieWalker < Test::Unit::TestCase
     def setup
-      sample_uri = "https://raw.githubusercontent.com/speg03/shishakai_bot/develop/test/sample/movie_walker.html"
+      sample_uri = "https://raw.githubusercontent.com/speg03/shishakai_bot/master/test/sample/movie_walker.html"
       @mw = MovieWalker.new(sample_uri)
     end
 
