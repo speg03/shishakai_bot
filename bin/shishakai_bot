@@ -1,7 +1,12 @@
 #!/usr/bin/env ruby
 
-$:.unshift(File.join(File.dirname(__FILE__), '/../lib'))
+Version = 'develop'
 
+require 'optparse'
+params = ARGV.getopts('', 'dry-run')
+dry_run = params['dry-run']
+
+$:.unshift(File.join(File.dirname(__FILE__), '/../lib'))
 require 'shishakai_bot'
 
 config = {
@@ -12,4 +17,4 @@ config = {
   access_token_secret:  ENV['ACCESS_TOKEN_SECRET']
 }
 
-ShishakaiBot::Main.new(config).run
+ShishakaiBot::Main.new(config).run(dry_run)
