@@ -7,6 +7,9 @@ module ShishakaiBot
     def initialize(config)
       @log = Logger.new(STDOUT)
       @log.level = Logger::INFO
+      @log.formatter = proc { |severity, datetime, progname, msg|
+        "#{severity}: #{msg}\n"
+      }
 
       @twitter = Twitter::REST::Client.new do |c|
         c.consumer_key = config[:consumer_key]
