@@ -11,6 +11,11 @@ module ShishakaiBot
                          dbname: url.path[1..-1])
     end
 
+    def init_db
+      @conn.exec("DROP TABLE IF EXISTS tweeted_pages")
+      @conn.exec("CREATE TABLE tweeted_pages (uri VARCHAR(128))")
+    end
+
     def uris
       @conn.exec("SELECT * FROM tweeted_pages").map do |row|
         row['uri']

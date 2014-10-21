@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+params = ARGV.getopts('',
+                      'user:postgres', 'password:',
+                      'host:localhost', 'port:5432',
+                      'database:postgres')
+
+database_url = ENV['DATABASE_URL'] ||
+  "postgres://#{params['user']}:#{params['password']}" <<
+  "@#{params['host']}:#{params['port']}/#{params['database']}"
+
+$:.unshift(File.join(File.dirname(__FILE__), '/../lib'))
+require 'shishakai_bot/tweeted_pages'
+
+ShishakaiBot::TweetedPages.new(database_url).init_db
