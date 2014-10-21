@@ -35,9 +35,9 @@ module ShishakaiBot
       (uris - old_uris).each do |uri|
         tweet = pages[uri].to_s
         @twitter.update(tweet) unless dry_run
-        @log.info("Twitter updated: #{tweet}")
+        @log.info("Twitter updated: #{tweet.lines.first.chomp}")
         @tweeted_pages.add(uri) unless dry_run
-        @log.info("Add to tweeted_pages: #{uri}")
+        @log.info("Added to tweeted_pages: #{uri}")
       end
     end
 
