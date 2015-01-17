@@ -52,7 +52,7 @@ module ShishakaiBot
     end
 
     def to_s
-      "#{@title}\n応募締切: #{@limit}\n開催日時: #{@date}\n開催場所: #{@place}\n#{@uri}"
+      "#{@title}\n#{@date} / #{@place}\n#{@uri}"
     end
 
   end
