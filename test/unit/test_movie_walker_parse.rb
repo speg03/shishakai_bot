@@ -23,7 +23,6 @@ module ShishakaiBot
       table_header = @@doc.css("div.previewMovieInfo").first.css("th")
       assert_equal("応募締切", table_header[0].text)
       assert_equal("開催日時", table_header[1].text)
-      assert_equal("開催場所", table_header[2].text)
     end
 
   end
