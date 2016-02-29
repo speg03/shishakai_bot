@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-Version = 'v1.1.3'
+Version = 'v1.1.4'
 
 require 'optparse'
 params = ARGV.getopts('', 'dry-run')
