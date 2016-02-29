@@ -11,14 +11,16 @@ module ShishakaiBot
     end
 
     test "3件の試写会ページがあること" do
-      assert { 3 == @mw.pages.length }
-      assert { 3 == @mw.uris.length }
+      assert { 4 == @mw.pages.length }
+      assert { 4 == @mw.uris.length }
     end
 
     data(
          page1: ["https://raw.githubusercontent.com/shisyakai/8610/", 0],
          page2: ["https://raw.githubusercontent.com/shisyakai/8607/", 1],
-         page3: ["https://raw.githubusercontent.com/shisyakai/8615/", 2])
+         page3: ["https://raw.githubusercontent.com/shisyakai/8615/", 2],
+         page4: ["https://raw.githubusercontent.com/shisyakai/9023/", 3]
+    )
     test "URIがHTML上と逆順でフルパスになっていること" do |data|
       expected, index = data
       assert { expected == @mw.uris[index] }
