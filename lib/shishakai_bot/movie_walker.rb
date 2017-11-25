@@ -6,7 +6,7 @@ require 'open-uri'
 module ShishakaiBot
   class MovieWalker
 
-    BASE_URI = "http://movie.walkerplus.com/shisyakai/"
+    BASE_URI = "https://movie.walkerplus.com/shisyakai/"
 
     def initialize(base_uri = BASE_URI)
       @pages = parse(base_uri)
